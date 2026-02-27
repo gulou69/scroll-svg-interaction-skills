@@ -1,4 +1,9 @@
-# Scroll SVG Interaction Skills / 滚动 SVG 交互技能集
+# GSAP Scroll-Driven SVG Web Design AI Skills
+# GSAP 滚动交互 SVG 网页设计 AI 技能集
+
+<p align="center">
+  <em>GSAP · ScrollTrigger · SVG Animation · Parallax · Scroll-Driven Web Design · AI Agent Skills</em>
+</p>
 
 <p align="center">
   <strong>English</strong> | <a href="#中文说明">中文说明</a>
@@ -8,7 +13,7 @@
 
 ## Overview
 
-This repository contains two complementary **AI Agent Skills** for building immersive, scroll-driven web experiences:
+This repository contains two complementary **AI Agent Skills** for building immersive, scroll-driven web experiences with **GSAP + ScrollTrigger** and **original SVG artwork**:
 
 | Skill | Description |
 |-------|-------------|
@@ -108,7 +113,7 @@ The `scroll-svg-design` template demonstrates a 3-scene "Mountain Pass" experien
 
 > **⚠️ GSAP License Notice**: GSAP is **not open source**. It uses the [GreenSock Standard License](https://gsap.com/community/standard-license/) which permits free use in most projects, but **prohibits** using GSAP as part of a tool or service that charges others for access. If you plan to use GSAP in a commercial SaaS/tool product, you must purchase a [GreenSock Business License](https://gsap.com/pricing/). See the [NOTICE](NOTICE) file for full details.
 
-> **🚫 Commercial Restriction**: Due to the GSAP licensing constraints above, **this project (including its code, templates, and skill instructions) MUST NOT be used as, or incorporated into, any tool, product, or service that charges users fees** — whether directly or indirectly (e.g., as a feature of a paid SaaS, page builder, website generator, or any commercial tooling). This restriction applies regardless of whether GSAP is bundled or loaded via CDN. Free / non-commercial / personal / educational use is fully permitted.
+> **🚫 Commercial Restriction**: If you have purchased a [GreenSock Business License](https://gsap.com/pricing/), you may use this project for commercial purposes, including paid products and services. **Without a valid GSAP Business License**, this project (including its code, templates, and skill instructions) **MUST NOT be used as, or incorporated into, any tool, product, or service that charges users fees** — whether directly or indirectly (e.g., as a feature of a paid SaaS, page builder, website generator, or any commercial tooling that references this project). This restriction applies regardless of whether GSAP is bundled or loaded via CDN. Free / non-commercial / personal / educational use is always permitted without additional licensing.
 
 ## License
 
@@ -136,11 +141,11 @@ Please ensure any contributions comply with the Apache 2.0 license and GSAP's li
 
 ---
 
-<h2 id="中文说明">中文说明</h2>
+<h2 id="中文说明">中文说明 / GSAP 滚动交互 SVG 网页设计 AI 技能集</h2>
 
 ## 概述
 
-本仓库包含两个互补的 **AI Agent Skill（智能体技能）**，用于构建沉浸式、滚动驱动的网页体验：
+本仓库包含两个互补的 **AI Agent Skill（智能体技能）**，基于 **GSAP + ScrollTrigger** 动画引擎和 **原创 SVG 插画**，用于构建沉浸式、滚动驱动的网页体验：
 
 | 技能 | 描述 |
 |------|------|
@@ -213,7 +218,7 @@ python -m http.server 8000
 
 > **⚠️ GSAP 许可证声明**：GSAP **不是**开源软件。它使用 [GreenSock 标准许可证](https://gsap.com/community/standard-license/)，允许在大多数项目中免费使用，但**禁止**将 GSAP 作为工具或服务的一部分向他人收费。如果你计划在商业 SaaS/工具产品中使用 GSAP，必须购买 [GreenSock 商业许可证](https://gsap.com/pricing/)。详见 [NOTICE](NOTICE) 文件。
 
-> **🚫 商用限制**：基于上述 GSAP 许可证约束，**本项目（包括其代码、模板和技能指令）不得作为收费工具使用，也不得被任何收费产品或服务引用、集成或嵌入** — 无论是直接还是间接方式（例如：作为付费 SaaS、网页生成器、建站工具或任何商业工具的功能组件）。无论 GSAP 是打包分发还是通过 CDN 加载，此限制均适用。免费 / 非商业 / 个人 / 教育用途完全允许。
+> **🚫 商用限制**：如果你已购买 [GreenSock 商业许可证](https://gsap.com/pricing/)，可以将本项目用于商业用途，包括付费产品和服务。**在未取得 GSAP 商业许可证的情况下**，本项目（包括其代码、模板和技能指令）**不得作为收费工具使用，也不得被任何收费产品或服务引用、集成或嵌入** — 无论是直接还是间接方式（例如：作为付费 SaaS、网页生成器、建站工具或任何商业工具的功能组件）。无论 GSAP 是打包分发还是通过 CDN 加载，此限制均适用。免费 / 非商业 / 个人 / 教育用途始终允许，无需额外许可。
 
 ## 许可证
 
