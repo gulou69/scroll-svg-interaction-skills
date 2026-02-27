@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountain Pass  SVG Scroll Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Global SVG defs -->
+  <svg style="position:absolute;width:0;height:0;" aria-hidden="true">
+    <defs>
+      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--color-sky)" />
+        <stop offset="100%" stop-color="var(--color-horizon)" />
+      </linearGradient>
+      <radialGradient id="moonGlow" cx="50%" cy="50%" r="60%">
+        <stop offset="0%" stop-color="var(--color-highlight)" stop-opacity="0.15" />
+        <stop offset="100%" stop-color="var(--color-highlight)" stop-opacity="0" />
+      </radialGradient>
+      <filter id="softBlur"><feGaussianBlur stdDeviation="0" /></filter>
+      <filter id="accentGlow">
+        <feGaussianBlur stdDeviation="4" result="blur" />
+        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Atmospheric overlays -->
+  <div class="grain-overlay"></div>
+  <div class="vignette"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!--  SCROLL STAGE  -->
+  <div id="scroll-stage">
+
+    <!-- ====== SCENE 1: MOUNTAIN PASS ====== -->
+    <section id="scene-1" class="scene">
+      <div class="scene-layer layer-bg" id="s1-bg">
+        <svg class="svg-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1440" height="900" fill="url(#skyGrad)" />
+          <circle cx="120" cy="80" r="1.2" fill="var(--color-highlight)" opacity="0.7"/>
+          <circle cx="280" cy="140" r="0.8" fill="var(--color-highlight)" opacity="0.4"/>
+          <circle cx="420" cy="60" r="1.5" fill="var(--color-highlight)" opacity="0.55"/>
+          <circle cx="580" cy="110" r="0.6" fill="var(--color-highlight)" opacity="0.35"/>
+          <circle cx="710" cy="50" r="1" fill="var(--color-highlight)" opacity="0.6"/>
+          <circle cx="860" cy="130" r="1.3" fill="var(--color-highlight)" opacity="0.45"/>
+          <circle cx="990" cy="70" r="0.7" fill="var(--color-highlight)" opacity="0.5"/>
+          <circle cx="1100" cy="160" r="1.1" fill="var(--color-highlight)" opacity="0.3"/>
+          <circle cx="1250" cy="90" r="0.9" fill="var(--color-highlight)" opacity="0.55"/>
+          <circle cx="1360" cy="45" r="1.4" fill="var(--color-highlight)" opacity="0.4"/>
+          <circle cx="200" cy="200" r="0.5" fill="var(--color-highlight)" opacity="0.25"/>
+          <circle cx="500" cy="180" r="0.8" fill="var(--color-highlight)" opacity="0.3"/>
+          <circle cx="950" cy="30" r="1" fill="var(--color-highlight)" opacity="0.5"/>
+          <circle cx="1150" cy="100" r="0.6" fill="var(--color-highlight)" opacity="0.4"/>
+          <circle cx="350" cy="35" r="1.2" fill="var(--color-highlight)" opacity="0.6"/>
+          <circle cx="1100" cy="180" r="50" fill="url(#moonGlow)" />
+          <circle cx="1100" cy="180" r="28" fill="var(--color-highlight)" opacity="0.08" />
+          <circle cx="1112" cy="174" r="26" fill="var(--color-sky)" />
+          <path d="M0,680 L120,550 L250,620 L400,480 L550,560 L680,440 L820,530 L960,420 L1100,500 L1250,450 L1440,520 V900 H0 Z" fill="var(--color-sky-mid)" opacity="0.5" />
+          <path d="M0,720 L180,580 L340,650 L520,510 L700,600 L850,490 L1020,570 L1200,480 L1380,550 L1440,580 V900 H0 Z" fill="var(--color-land-far)" opacity="0.65" />
+          <path d="M0,770 Q180,700 360,740 Q540,680 720,730 Q900,670 1080,720 Q1260,680 1440,710 V900 H0 Z" fill="var(--color-land)" opacity="0.85" />
+          <path d="M0,830 Q360,800 720,820 Q1080,795 1440,815 V900 H0 Z" fill="var(--color-land-near)" />
+          <ellipse cx="400" cy="750" rx="500" ry="30" fill="var(--color-mist)" />
+          <ellipse cx="1100" cy="720" rx="400" ry="20" fill="var(--color-mist)" />
+        </svg>
+      </div>
+
+      <!-- MID: Pine trees -->
+      <div class="scene-layer layer-mid" id="s1-mid">
+        <svg class="svg-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(100, 650)">
+            <polygon points="0,-90 15,0 -15,0" fill="var(--color-land-near)" opacity="0.9"/>
+            <polygon points="0,-130 20,-30 -20,-30" fill="var(--color-land-near)" opacity="0.8"/>
+            <rect x="-3" y="0" width="6" height="20" fill="var(--color-land-near)" opacity="0.7"/>
+          </g>
+          <g transform="translate(220, 640)">
+            <polygon points="0,-110 20,0 -20,0" fill="var(--color-land-near)" opacity="0.85"/>
+            <polygon points="0,-160 25,-40 -25,-40" fill="var(--color-land-near)" opacity="0.75"/>
+            <polygon points="0,-195 18,-80 -18,-80" fill="var(--color-land-near)" opacity="0.65"/>
+            <rect x="-4" y="0" width="8" height="25" fill="var(--color-land-near)" opacity="0.6"/>
+          </g>
+          <g transform="translate(380, 660)">
+            <polygon points="0,-80 13,0 -13,0" fill="var(--color-land-near)" opacity="0.9"/>
+            <polygon points="0,-115 17,-25 -17,-25" fill="var(--color-land-near)" opacity="0.8"/>
+            <rect x="-2" y="0" width="4" height="15" fill="var(--color-land-near)" opacity="0.7"/>
+          </g>
+          <g transform="translate(1050, 645)">
+            <polygon points="0,-100 18,0 -18,0" fill="var(--color-land-near)" opacity="0.9"/>
+            <polygon points="0,-145 22,-35 -22,-35" fill="var(--color-land-near)" opacity="0.8"/>
+            <rect x="-3" y="0" width="6" height="20" fill="var(--color-land-near)" opacity="0.7"/>
+          </g>
+          <g transform="translate(1120, 655)">
+            <polygon points="0,-75 12,0 -12,0" fill="var(--color-land-near)" opacity="0.85"/>
+            <polygon points="0,-105 15,-22 -15,-22" fill="var(--color-land-near)" opacity="0.75"/>
+            <rect x="-2" y="0" width="4" height="15" fill="var(--color-land-near)" opacity="0.65"/>
+          </g>
+          <g transform="translate(1200, 640)">
+            <polygon points="0,-120 22,0 -22,0" fill="var(--color-land-near)" opacity="0.9"/>
+            <polygon points="0,-170 28,-45 -28,-45" fill="var(--color-land-near)" opacity="0.8"/>
+            <polygon points="0,-200 20,-90 -20,-90" fill="var(--color-land-near)" opacity="0.7"/>
+            <rect x="-4" y="0" width="8" height="25" fill="var(--color-land-near)" opacity="0.6"/>
+          </g>
+          <ellipse cx="720" cy="780" rx="600" ry="40" fill="var(--color-mist)" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <!-- FRAME: Gothic arch -->
+      <div class="scene-layer layer-frame" id="s1-frame">
+        <svg class="svg-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 L0,900 L200,900 L200,120 Q200,20 350,20 L500,20
+                   Q600,20 620,50 Q680,0 720,0 Q760,0 820,50
+                   Q840,20 940,20 L1090,20 Q1240,20 1240,120 L1240,900 L1440,900 L1440,0 Z"
+                fill="var(--color-land-near)" opacity="0.95"/>
+          <line x1="200" y1="200" x2="200" y2="900" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+          <line x1="1240" y1="200" x2="1240" y2="900" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+          <circle cx="720" cy="90" r="4" fill="var(--color-accent)" opacity="0.5"/>
+          <circle cx="720" cy="90" r="8" fill="none" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.3"/>
+        </svg>
+      </div>
+
+      <!-- TEXT layer -->
+      <div class="scene-layer layer-text" id="s1-text">
+        <div class="content-wrapper">
+          <img src="svg/icons/compass.svg" class="layer-icon" alt="compass" width="48" height="48"/>
+          <h1 class="main-title">
+            <span class="title-line">Ethereal</span>
+            <span class="title-line accent">Horizons</span>
+          </h1>
+          <img src="svg/dividers/diamond-divider.svg" class="divider-svg" alt="" width="200" height="20"/>
+          <p class="subtitle">A journey through layered landscapes of light and shadow</p>
+        </div>
+      </div>
+
+      <!-- Decorations -->
+      <div class="scene-decorations" id="s1-decor">
+        <div class="floating-particle" style="--x:15vw; --y:30vh; --size:3px; --delay:0s;"></div>
+        <div class="floating-particle" style="--x:80vw; --y:20vh; --size:2px; --delay:1.2s;"></div>
+        <div class="floating-particle" style="--x:60vw; --y:60vh; --size:4px; --delay:0.6s;"></div>
+        <div class="floating-particle" style="--x:35vw; --y:75vh; --size:2px; --delay:1.8s;"></div>
+        <div class="floating-particle" style="--x:90vw; --y:50vh; --size:3px; --delay:0.3s;"></div>
+      </div>
+    </section>
+
+    <!-- ==================== SCENE 2: Forest Clearing ==================== -->
+    <section class="scene" id="scene-2">
+      <div class="scene-layer layer-bg" id="s2-bg">
+        <svg class="svg-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="forestGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--color-sky-mid)"/>
+              <stop offset="60%" stop-color="var(--color-sky-low)"/>
+              <stop offset="100%" stop-color="var(--color-land-far)"/>
+            </linearGradient>
+            <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--color-land-near)" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="var(--color-land-near)"/>
+            </linearGradient>
+          </defs>
+          <rect width="1440" height="900" fill="url(#forestGrad)"/>
+          <!-- Far trees -->
+          <g opacity="0.3">
+            <polygon points="200,-20 280,350 120,350" fill="var(--color-land-far)"/>
+            <polygon points="400,-40 500,350 300,350" fill="var(--color-land-far)"/>
+            <polygon points="650,0 730,350 570,350" fill="var(--color-land-far)"/>
+            <polygon points="900,-30 990,350 810,350" fill="var(--color-land-far)"/>
+            <polygon points="1150,-10 1240,350 1060,350" fill="var(--color-land-far)"/>
+            <polygon points="1350,-25 1430,350 1270,350" fill="var(--color-land-far)"/>
+          </g>
+          <!-- Mid trees -->
+          <g opacity="0.55">
+            <polygon points="100,100 200,500 0,500" fill="var(--color-land-mid)"/>
+            <polygon points="350,80 470,500 230,500" fill="var(--color-land-mid)"/>
+            <polygon points="700,60 830,500 570,500" fill="var(--color-land-mid)"/>
+            <polygon points="1000,90 1120,500 880,500" fill="var(--color-land-mid)"/>
+            <polygon points="1300,70 1440,500 1160,500" fill="var(--color-land-mid)"/>
+          </g>
+          <!-- Ground -->
+          <path d="M0,500 Q200,460 400,480 Q700,520 1000,470 Q1200,450 1440,490 L1440,900 L0,900 Z" fill="var(--color-land-near)" opacity="0.9"/>
+          <!-- Light rays -->
+          <g opacity="0.15">
+            <polygon points="600,0 650,500 550,500" fill="var(--color-accent)"/>
+            <polygon points="750,0 820,500 700,500" fill="var(--color-accent)"/>
+            <polygon points="680,0 740,600 640,600" fill="var(--color-accent)"/>
+          </g>
+          <!-- Fireflies -->
+          <circle cx="420" cy="380" r="3" fill="var(--color-accent)" filter="url(#accentGlow)" opacity="0.8"/>
+          <circle cx="680" cy="320" r="2" fill="var(--color-accent)" filter="url(#accentGlow)" opacity="0.6"/>
+          <circle cx="950" cy="400" r="3" fill="var(--color-accent)" filter="url(#accentGlow)" opacity="0.7"/>
+          <circle cx="300" cy="450" r="2" fill="var(--color-accent)" filter="url(#accentGlow)" opacity="0.5"/>
+          <circle cx="1100" cy="350" r="2" fill="var(--color-accent)" filter="url(#accentGlow)" opacity="0.65"/>
+        </svg>
+      </div>
+
+      <div class="scene-layer layer-text" id="s2-text">
+        <div class="content-wrapper">
+          <h2 class="section-title">Into the Forest</h2>
+          <img src="svg/dividers/circle-divider.svg" class="divider-svg" alt="" width="200" height="20"/>
+          <p class="body-text">Light filters through ancient canopy, casting golden shafts across the emerald floor.</p>
+        </div>
+      </div>
+
+      <div class="scene-layer layer-mid" id="s2-cards">
+        <div class="cards-row">
+          <div class="info-card">
+            <img src="svg/icons/compass.svg" class="card-icon" alt="" width="32" height="32"/>
+            <h3>Navigate</h3>
+            <p>Find your path through the ancient woodland.</p>
+          </div>
+          <div class="info-card">
+            <img src="svg/icons/mountain.svg" class="card-icon" alt="" width="32" height="32"/>
+            <h3>Discover</h3>
+            <p>Hidden clearings reveal stories written in bark and stone.</p>
+          </div>
+          <div class="info-card">
+            <img src="svg/icons/compass.svg" class="card-icon" alt="" width="32" height="32"/>
+            <h3>Return</h3>
+            <p>Every trail leads back to the heart of the forest.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-decorations" id="s2-decor">
+        <div class="floating-particle" style="--x:25vw; --y:40vh; --size:3px; --delay:0.2s;"></div>
+        <div class="floating-particle" style="--x:70vw; --y:35vh; --size:2px; --delay:0.9s;"></div>
+        <div class="floating-particle" style="--x:45vw; --y:55vh; --size:4px; --delay:1.5s;"></div>
+        <div class="floating-particle" style="--x:85vw; --y:65vh; --size:2px; --delay:0.5s;"></div>
+      </div>
+    </section>
+
+    <!-- ==================== SCENE 3: Summit Dawn ==================== -->
+    <section class="scene" id="scene-3">
+      <div class="scene-layer layer-bg" id="s3-bg">
+        <svg class="svg-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="dawnGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--color-sky-top)"/>
+              <stop offset="40%" stop-color="var(--color-accent)" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="var(--color-sky-low)"/>
+            </linearGradient>
+            <radialGradient id="sunGlow" cx="50%" cy="35%" r="30%">
+              <stop offset="0%" stop-color="var(--color-accent)" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1440" height="900" fill="url(#dawnGrad)"/>
+          <!-- Sun glow -->
+          <circle cx="720" cy="300" r="300" fill="url(#sunGlow)"/>
+          <circle cx="720" cy="300" r="40" fill="var(--color-accent)" opacity="0.9" filter="url(#accentGlow)"/>
+          <!-- Distant ridges -->
+          <path d="M0,600 Q200,520 400,550 Q600,500 720,480 Q840,500 1040,550 Q1240,520 1440,600 L1440,900 L0,900 Z" fill="var(--color-land-far)" opacity="0.4"/>
+          <path d="M0,650 Q300,580 600,620 Q720,600 840,620 Q1140,580 1440,650 L1440,900 L0,900 Z" fill="var(--color-land-mid)" opacity="0.6"/>
+          <!-- Summit rock -->
+          <path d="M500,700 Q600,600 720,580 Q840,600 940,700 L940,900 L500,900 Z" fill="var(--color-land-near)" opacity="0.9"/>
+          <!-- Mist bands -->
+          <ellipse cx="720" cy="660" rx="500" ry="20" fill="var(--color-mist)" opacity="0.5"/>
+          <ellipse cx="400" cy="700" rx="300" ry="15" fill="var(--color-mist)" opacity="0.35"/>
+          <ellipse cx="1050" cy="690" rx="280" ry="12" fill="var(--color-mist)" opacity="0.3"/>
+          <!-- Birds -->
+          <g stroke="var(--color-land-far)" stroke-width="1.5" fill="none" opacity="0.5">
+            <path d="M600,250 Q610,240 620,250 Q630,240 640,250"/>
+            <path d="M780,220 Q788,212 796,220 Q804,212 812,220"/>
+            <path d="M680,270 Q686,264 692,270 Q698,264 704,270"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="scene-layer layer-text" id="s3-text">
+        <div class="content-wrapper">
+          <img src="svg/icons/mountain.svg" class="layer-icon" alt="mountain" width="48" height="48"/>
+          <h2 class="section-title">The Summit</h2>
+          <img src="svg/dividers/diamond-divider.svg" class="divider-svg" alt="" width="200" height="20"/>
+          <p class="body-text closing-quote">"Above the clouds, every peak tells the story of a journey that once seemed impossible."</p>
+        </div>
+      </div>
+
+      <div class="scene-decorations" id="s3-decor">
+        <div class="floating-particle" style="--x:20vw; --y:25vh; --size:3px; --delay:0.4s;"></div>
+        <div class="floating-particle" style="--x:75vw; --y:30vh; --size:2px; --delay:1.0s;"></div>
+        <div class="floating-particle" style="--x:50vw; --y:45vh; --size:4px; --delay:1.6s;"></div>
+        <div class="floating-particle" style="--x:30vw; --y:60vh; --size:2px; --delay:0.7s;"></div>
+        <div class="floating-particle" style="--x:65vw; --y:70vh; --size:3px; --delay:1.3s;"></div>
+      </div>
+    </section>
+
+  </div><!-- /scroll-stage -->
+
+  <script src="js/animations.js"></script>
+</body>
+</html>

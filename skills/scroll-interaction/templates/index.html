@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Experience — Template</title>
+
+  <!-- Distinctive typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== ATMOSPHERIC OVERLAYS ===== -->
+  <div class="grain-overlay"></div>
+  <div class="vignette"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ==========================================================
+       SCROLL STAGE — Single pinned container holding ALL scenes.
+       All scenes are stacked (position: absolute) inside this div.
+       Transitions happen IN-PLACE — no document-flow gaps.
+       ========================================================== -->
+  <div id="scroll-stage">
+
+    <!-- SCENE 1: HERO — "Window Into World" -->
+    <section id="scene-1" class="scene">
+      <div class="scene-layer layer-bg" id="s1-bg"></div>
+      <div class="scene-layer layer-mid" id="s1-mid">
+        <div class="hero-shape"></div>
+      </div>
+      <div class="scene-layer layer-frame" id="s1-frame">
+        <div class="window-frame">
+          <div class="frame-corner tl"></div>
+          <div class="frame-corner tr"></div>
+          <div class="frame-corner bl"></div>
+          <div class="frame-corner br"></div>
+        </div>
+      </div>
+      <div class="scene-layer layer-text" id="s1-text">
+        <p class="sub-text">Scroll to Explore</p>
+        <h1 class="display-text">INTO THE<br>DEPTH</h1>
+        <p class="sub-text" style="margin-top: 2rem; opacity: 0.4;">↓</p>
+      </div>
+      <div class="scene-layer layer-overlay" id="s1-particles"></div>
+    </section>
+
+    <!-- SCENE 2: CONTENT — "Deep Dive" -->
+    <section id="scene-2" class="scene">
+      <div class="scene-layer layer-bg" id="s2-bg"></div>
+      <div class="scene-layer layer-mid" id="s2-mid">
+        <div class="content-card" data-card="1">
+          <h3>Layer Depth</h3>
+          <p>Elements at different Z-depths move at different speeds, creating an illusion of three-dimensional space.</p>
+        </div>
+        <div class="content-card" data-card="2">
+          <h3>Scroll Rhythm</h3>
+          <p>The scrub property binds animation progress directly to scroll position — the user's scroll becomes the playhead.</p>
+        </div>
+        <div class="content-card" data-card="3">
+          <h3>Seamless Flow</h3>
+          <p>Iris wipes, mask shapes, and blur dissolves connect scenes without jarring transitions.</p>
+        </div>
+      </div>
+      <div class="scene-layer layer-text" id="s2-text">
+        <h2 class="display-text" style="font-size: clamp(1.8rem, 4vw, 4rem);">CORE<br>PRINCIPLES</h2>
+      </div>
+    </section>
+
+    <!-- SCENE 3: CLOSING — "Emerge" -->
+    <section id="scene-3" class="scene">
+      <div class="scene-layer layer-bg" id="s3-bg"></div>
+      <div class="scene-layer layer-text" id="s3-text">
+        <p class="closing-text">Every scroll tells a story</p>
+        <p class="closing-tag">Built with GSAP + ScrollTrigger</p>
+      </div>
+    </section>
+
+  </div>
+  <!-- END scroll-stage -->
+
+  <!-- External JS — after body content -->
+  <script src="js/animations.js"></script>
+</body>
+</html>

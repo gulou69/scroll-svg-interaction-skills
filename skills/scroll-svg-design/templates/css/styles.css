@@ -1,0 +1,220 @@
+/* =============================================================
+   SVG SCROLL EXPERIENCE — STYLES
+   Stacked-scene architecture with full SVG illustrations.
+   ============================================================= */
+
+/* ===== COLOR SYSTEM ===== */
+:root {
+  --color-sky:       #0f1729;
+  --color-sky-mid:   #162040;
+  --color-horizon:   #1a2744;
+  --color-land-far:  #1e3a4a;
+  --color-land:      #2d4a3e;
+  --color-land-near: #1a3028;
+  --color-accent:    #c4956a;
+  --color-highlight: #f0dcc0;
+  --color-text:      #f0ece2;
+  --color-shadow:    #080c14;
+  --color-mist:      rgba(200, 210, 220, 0.06);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  /* Match final scene (dawn) to prevent bottom-gap flash */
+  background: #2a1a3e;
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================
+   SCROLL STAGE — Single pinned container.
+   Scenes stacked absolutely inside → seamless transitions.
+   ========================================================== */
+#scroll-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scene-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.layer-bg      { z-index: 1; }
+.layer-mid     { z-index: 2; }
+.layer-frame   { z-index: 3; }
+.layer-text    { z-index: 4; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.layer-overlay { z-index: 5; pointer-events: none; }
+
+/* ===== SVG LAYOUT ===== */
+.svg-full {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+}
+
+.svg-frame-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-frame-wrap svg {
+  width: 75vmin;
+  height: 90vmin;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.display-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 8vw, 8rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: var(--color-text);
+  text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+}
+
+.sub-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+
+.body-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-style: italic;
+  line-height: 1.7;
+  max-width: 38ch;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.svg-icon { width: 48px; height: 48px; margin-bottom: 1.5rem; }
+.svg-divider { width: clamp(200px, 40vw, 400px); height: 30px; margin: 1.2rem 0; }
+
+/* ===== ATMOSPHERIC OVERLAYS ===== */
+.grain-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none; opacity: 0.035;
+  background: repeating-conic-gradient(var(--color-text) 0.00005%, transparent 0.0005%) 50% 50% / 800px 800px;
+  animation: grain-shift 0.4s steps(1) infinite;
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-3px, 2px); }
+  50% { transform: translate(2px, -3px); }
+  75% { transform: translate(-1px, -1px); }
+}
+
+.vignette {
+  position: fixed; inset: 0; z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(8,12,20,0.7) 100%);
+}
+
+.scroll-progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-highlight));
+  z-index: 10000;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* ===== SCENE 2: FOREST (starts hidden) ===== */
+#scene-2 { opacity: 0; visibility: hidden; }
+
+.info-card {
+  background: rgba(15, 23, 41, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 149, 106, 0.15);
+  padding: 2rem 1.8rem;
+  max-width: 300px;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.info-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-highlight);
+  margin-bottom: 0.5rem;
+}
+
+.info-card p {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.cards-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5vw;
+  padding: 0 4vw;
+}
+
+/* ===== SCENE 3: SUMMIT (starts hidden, with diagonal clip) ===== */
+#scene-3 {
+  opacity: 0;
+  visibility: hidden;
+  /* Diagonal wipe: starts fully clipped from top-right corner */
+  clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0);
+}
+
+.closing-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 4vw, 3.5rem);
+  font-weight: 400; font-style: italic;
+  text-align: center; max-width: 16ch;
+  line-height: 1.25;
+  color: var(--color-highlight);
+}
+
+.closing-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  opacity: 0.3;
+  margin-top: 2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .svg-frame-wrap svg { width: 90vmin; height: 95vmin; }
+  .cards-row { flex-direction: column; gap: 1.5rem; }
+  .info-card { max-width: 85vw; }
+}

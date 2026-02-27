@@ -1,0 +1,97 @@
+Scroll SVG Interaction Skills
+Copyright 2025 Anthropic, PBC
+
+This product includes software originally developed by Anthropic, PBC
+as part of the "skills" project (https://github.com/anthropics/skills).
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+================================================================================
+THIRD-PARTY SOFTWARE NOTICES
+================================================================================
+
+The following third-party software is used in this project via CDN and is NOT
+bundled in this repository. Users are responsible for complying with their
+respective licenses when using these libraries.
+
+--------------------------------------------------------------------------------
+1. GSAP (GreenSock Animation Platform) — v3.12.5
+--------------------------------------------------------------------------------
+
+   Website:  https://gsap.com/
+   License:  GreenSock Standard License
+             https://gsap.com/community/standard-license/
+
+   GSAP is NOT open source software. The GreenSock Standard License permits
+   free use of GSAP in most projects, including open source projects, but
+   with the following key restrictions:
+
+   - You MAY NOT use GSAP (or any GreenSock tools) as part of a product,
+     tool, or service that is sold to or used by others (SaaS, page builders,
+     website-as-a-service, etc.) without a GreenSock Business License.
+
+   - You MAY NOT redistribute GSAP source code as part of a competing
+     animation library.
+
+   For commercial SaaS/tool use, a Business License is required:
+   https://gsap.com/pricing/
+
+   This project loads GSAP via CDN:
+   - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js
+   - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js
+
+--------------------------------------------------------------------------------
+2. ScrollTrigger — v3.12.5
+--------------------------------------------------------------------------------
+
+   Website:  https://gsap.com/docs/v3/Plugins/ScrollTrigger/
+   License:  GreenSock Standard License (same as GSAP above)
+
+   ScrollTrigger is a free plugin included with GSAP. The same licensing
+   terms as GSAP apply.
+
+--------------------------------------------------------------------------------
+3. Google Fonts
+--------------------------------------------------------------------------------
+
+   Website:  https://fonts.google.com/
+
+   The following fonts are loaded via Google Fonts CDN:
+
+   a) Cormorant Garamond
+      License: SIL Open Font License, Version 1.1
+      https://scripts.sil.org/OFL
+
+   b) JetBrains Mono
+      License: SIL Open Font License, Version 1.1
+      Copyright 2020 The JetBrains Mono Project Authors
+      https://github.com/JetBrains/JetBrainsMono
+
+   The SIL Open Font License permits free use, modification, and
+   redistribution of fonts, provided:
+   - The font is not sold by itself
+   - The original font name is not used for modified versions
+     without permission
+
+================================================================================
+MODIFICATIONS
+================================================================================
+
+This repository packages the original "scroll-svg-design" and
+"scroll-interaction" skills from Anthropic's skills repository with:
+
+- A bilingual (English/Chinese) README for improved accessibility
+- This NOTICE file for third-party attribution
+- Project reorganization for standalone use
+
+The original SKILL.md files and template code remain unmodified.
