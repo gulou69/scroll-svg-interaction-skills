@@ -103,6 +103,8 @@ The `scroll-svg-design` template demonstrates a 3-scene "Mountain Pass" experien
 
 > **⚠️ GSAP License Notice**: GSAP is **not open source**. It uses the [GreenSock Standard License](https://gsap.com/community/standard-license/) which permits free use in most projects, but **prohibits** using GSAP as part of a tool or service that charges others for access. If you plan to use GSAP in a commercial SaaS/tool product, you must purchase a [GreenSock Business License](https://gsap.com/pricing/). See the [NOTICE](NOTICE) file for full details.
 
+> **🚫 Commercial Restriction**: Due to the GSAP licensing constraints above, **this project (including its code, templates, and skill instructions) MUST NOT be used as, or incorporated into, any tool, product, or service that charges users fees** — whether directly or indirectly (e.g., as a feature of a paid SaaS, page builder, website generator, or any commercial tooling). This restriction applies regardless of whether GSAP is bundled or loaded via CDN. Free / non-commercial / personal / educational use is fully permitted.
+
 ## License
 
 This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE) file for details.
@@ -200,6 +202,8 @@ python -m http.server 8000
 | [Google Fonts](https://fonts.google.com/) | — | SIL 开放字体许可证 | 排版字体 (Cormorant Garamond, JetBrains Mono) |
 
 > **⚠️ GSAP 许可证声明**：GSAP **不是**开源软件。它使用 [GreenSock 标准许可证](https://gsap.com/community/standard-license/)，允许在大多数项目中免费使用，但**禁止**将 GSAP 作为工具或服务的一部分向他人收费。如果你计划在商业 SaaS/工具产品中使用 GSAP，必须购买 [GreenSock 商业许可证](https://gsap.com/pricing/)。详见 [NOTICE](NOTICE) 文件。
+
+> **🚫 商用限制**：基于上述 GSAP 许可证约束，**本项目（包括其代码、模板和技能指令）不得作为收费工具使用，也不得被任何收费产品或服务引用、集成或嵌入** — 无论是直接还是间接方式（例如：作为付费 SaaS、网页生成器、建站工具或任何商业工具的功能组件）。无论 GSAP 是打包分发还是通过 CDN 加载，此限制均适用。免费 / 非商业 / 个人 / 教育用途完全允许。
 
 ## 许可证
 
