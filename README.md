@@ -8,14 +8,14 @@
 
 ## Overview
 
-This repository contains two complementary **Claude Agent Skills** for building immersive, scroll-driven web experiences:
+This repository contains two complementary **AI Agent Skills** for building immersive, scroll-driven web experiences:
 
 | Skill | Description |
 |-------|-------------|
 | **scroll-svg-design** | Create scroll-driven pages where **every visual element is original SVG artwork** — landscapes, frames, decorations, icons, masks. Pure illustrated web art that moves with the scroll. |
 | **scroll-interaction** | Build advanced scroll interactions with parallax depth, GSAP + ScrollTrigger animations, layered Z-axis effects, and seamless scene transitions. |
 
-Both skills work with [Claude](https://claude.ai) as Agent Skills — structured instruction sets that teach Claude how to generate high-quality scroll-driven websites in a repeatable way.
+These skills are **AI Agent Skills** — structured instruction sets that teach any AI agent (Claude, ChatGPT, Gemini, Copilot, or any LLM-powered coding agent) how to generate high-quality scroll-driven websites in a repeatable way. Simply feed the SKILL.md file to your AI agent as context.
 
 > **Origin**: These skills are derived from [Anthropic's official skills repository](https://github.com/anthropics/skills). Full attribution is preserved below.
 
@@ -37,7 +37,7 @@ Both skills work with [Claude](https://claude.ai) as Agent Skills — structured
 ```
 ├── skills/
 │   ├── scroll-svg-design/          # SVG-Illustrated Scroll Experience
-│   │   ├── SKILL.md                # Skill instructions for Claude
+│   │   ├── SKILL.md                # Skill instructions for AI 
 │   │   ├── LICENSE.txt             # Apache License 2.0
 │   │   └── templates/             # Working demo template
 │   │       ├── index.html          # 3-scene scroll experience (Mountain → Forest → Summit)
@@ -48,7 +48,7 @@ Both skills work with [Claude](https://claude.ai) as Agent Skills — structured
 │   │           └── dividers/       # diamond-divider.svg, circle-divider.svg
 │   │
 │   └── scroll-interaction/         # Advanced Scroll Interaction Builder
-│       ├── SKILL.md                # Skill instructions for Claude
+│       ├── SKILL.md                # Skill instructions for AI 
 │       ├── LICENSE.txt             # Apache License 2.0
 │       └── templates/             # Working demo template
 │           ├── index.html
@@ -61,11 +61,16 @@ Both skills work with [Claude](https://claude.ai) as Agent Skills — structured
 
 ## Quick Start
 
-### Use as Claude Agent Skill
+### Use as AI Agent Skill
 
 1. Clone this repository
-2. In [Claude](https://claude.ai) or [Claude Code](https://docs.anthropic.com/en/docs/claude-code), add the skill folder as a project resource
-3. Ask Claude to create a scroll-driven website — it will follow the skill instructions automatically
+2. Feed the `SKILL.md` file to your AI agent as context/instructions. Compatible with:
+   - **Claude** (claude.ai / Claude Code) — add as project knowledge
+   - **ChatGPT** (chat.openai.com) — paste or upload as context
+   - **Gemini** (gemini.google.com) — attach as reference
+   - **GitHub Copilot** — include in workspace
+   - Any other LLM-powered coding agent
+3. Ask the AI to create a scroll-driven website — it will follow the skill instructions automatically
 
 ### Run the Template Demo
 
@@ -135,14 +140,14 @@ Please ensure any contributions comply with the Apache 2.0 license and GSAP's li
 
 ## 概述
 
-本仓库包含两个互补的 **Claude Agent Skill（智能体技能）**，用于构建沉浸式、滚动驱动的网页体验：
+本仓库包含两个互补的 **AI Agent Skill（智能体技能）**，用于构建沉浸式、滚动驱动的网页体验：
 
 | 技能 | 描述 |
 |------|------|
 | **scroll-svg-design** | 创建以**原创 SVG 插画**为所有视觉元素的滚动驱动网页 — 风景、画框、装饰、图标、遮罩。纯手绘风格网页艺术，随滚动而动。 |
 | **scroll-interaction** | 构建高级滚动交互，包含视差深度、GSAP + ScrollTrigger 动画、分层 Z 轴效果和无缝场景过渡。 |
 
-两个技能均配合 [Claude](https://claude.ai) 作为 Agent Skill 使用 — 结构化指令集，教会 Claude 如何可重复地生成高质量的滚动驱动网站。
+这些技能是 **AI Agent Skill（智能体技能）** — 结构化指令集，可教会任何 AI 智能体（Claude、ChatGPT、Gemini、Copilot 或任何基于 LLM 的编程助手）如何可重复地生成高质量的滚动驱动网站。只需将 SKILL.md 文件作为上下文提供给你的 AI 即可。
 
 > **来源**：这些技能源自 [Anthropic 官方 skills 仓库](https://github.com/anthropics/skills)。原始归属声明完整保留。
 
@@ -161,11 +166,16 @@ Please ensure any contributions comply with the Apache 2.0 license and GSAP's li
 
 ## 快速开始
 
-### 作为 Claude Agent Skill 使用
+### 作为 AI Agent Skill 使用
 
 1. 克隆本仓库
-2. 在 [Claude](https://claude.ai) 或 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 中，将 skill 文件夹添加为项目资源
-3. 让 Claude 创建一个滚动驱动的网站 — 它会自动遵循技能指令
+2. 将 `SKILL.md` 文件作为上下文/指令提供给你的 AI 智能体。兼容：
+   - **Claude** (claude.ai / Claude Code) — 添加为项目知识
+   - **ChatGPT** (chat.openai.com) — 粘贴或上传作为上下文
+   - **Gemini** (gemini.google.com) — 作为参考附件
+   - **GitHub Copilot** — 放入工作区
+   - 任何其他基于 LLM 的编程助手
+3. 让 AI 创建一个滚动驱动的网站 — 它会自动遵循技能指令
 
 ### 运行模板演示
 
